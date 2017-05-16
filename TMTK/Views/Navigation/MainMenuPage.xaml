@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="TMTK.MainMenuPage"
+	Title="Main Menu" 
+	Style="{ StaticResource MainMenuStyle }"
+	xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+	xmlns:commonViews="clr-namespace:TMTK;assembly=TMTK"
+	xmlns:views="clr-namespace:TMTK;assembly=TMTK"
+	Icon="{ StaticResource HamburguerIcon }">
+
+
+	<Grid
+		VerticalOptions="FillAndExpand" 
+		Padding="0,0,0,10">
+
+		<Grid.RowDefinitions>
+			<RowDefinition Height="100" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+
+		<Grid
+			Grid.Row="0"
+			HorizontalOptions="Start" 
+			VerticalOptions="Start">
+
+			<!-- LOGO -->
+			<commonViews:BrandBlock /> 
+			
+			<!-- SCREENS COUNTER 
+			<commonViews:Badge 
+				Scale=".9"
+				BadgeText="{ Binding AllMenus.Count }" 
+				BadgeTextColor="#FFF" 
+				BadgeBackgroundColor="#F00"
+				HorizontalOptions="End"
+				VerticalOptions="Start"
+			/>-->
+		</Grid>
+
+		<ListView 
+		    Grid.Row="1"
+			x:Name="menuListView" 
+			ItemSelected="OnItemSelected"
+			ItemsSource="{ Binding MenusGroupedByCategory }"
+			IsGroupingEnabled="true"
+			GroupDisplayBinding="{ Binding Name }"
+			SeparatorVisibility="None"
+			VerticalOptions="FillAndExpand"
+			Style="{ DynamicResource MainMenuListViewStyle }"
+			 >
+				<ListView.GroupHeaderTemplate> 
+					<DataTemplate> 
+						<ViewCell> 
+							<views:MainMenuGroupHeaderTemplate />
+						</ViewCell> 
+					</DataTemplate> 
+				</ListView.GroupHeaderTemplate>
+
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<views:MainMenuItemTemplate />
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+		</ListView>
+	</Grid>
+</ContentPage>

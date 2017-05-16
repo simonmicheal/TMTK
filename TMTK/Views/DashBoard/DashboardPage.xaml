@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+	xmlns:templates="clr-namespace:TMTK;assembly=TMTK"
+	x:Class="TMTK.DashboardPage"
+	Title="Menu">
+
+	<ListView 
+		x:Name="dashboardListView" 
+		ItemsSource="{Binding AllMenus}"
+		SeparatorVisibility="None"
+		SeparatorColor="#DFDFDF"
+		HasUnevenRows="false"
+		ItemSelected="OnItemSelected"
+		RowHeight="60">
+	
+		<ListView.ItemTemplate>
+			<DataTemplate>
+				<ViewCell>
+					<templates:CategoriesListWithIconsItemTemplate/>
+				</ViewCell>
+			</DataTemplate>
+		</ListView.ItemTemplate>
+
+	</ListView>
+</ContentPage>

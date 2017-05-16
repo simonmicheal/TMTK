@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="TMTK.FinalistsPage"
+	xmlns:views="clr-namespace:TMTK;assembly=TMTK"
+	BackgroundColor="#DFDFDF"
+	xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared" 
+	xmlns:converters="clr-namespace:TMTK;assembly=TMTK" 
+	xmlns:util="clr-namespace:TMTK;assembly=TMTK"
+    Title="Better Your Best Finalists">
+
+	 <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ByteToImageFieldConverter x:Key="bic" />
+			<converters:HasVotedConverter x:Key="hasvoted" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+	<Grid>
+
+        <ListView 
+			x:Name="finalistslist" 
+			ItemsSource="{ Binding ContestCollection }"
+			SeparatorVisibility="None" 
+			HasUnevenRows="true" 
+			VerticalOptions="FillAndExpand"
+			 >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+
+			    <StackLayout HeightRequest="200" HorizontalOptions="FillAndExpand" Orientation="Horizontal" BackgroundColor="White" Margin="10" Padding="5">
+
+			        <StackLayout VerticalOptions="Center">
+			            <artina:CircleImage BackgroundColor="White" 
+						    Source="{ Binding Headshot, Converter={StaticResource bic}}" 
+						    Style="{StaticResource AvatarLarge}" VerticalOptions="Center" Margin="5" />
+
+			            <Label 
+								FontSize="10"
+								Text="{Binding Name}" 
+								TextColor="Black" 
+								FontAttributes="Bold" 
+								HorizontalOptions="Center"
+			                    HorizontalTextAlignment="Center"
+			                    VerticalOptions="Center"
+			                    VerticalTextAlignment="Center"
+								LineBreakMode="WordWrap"
+								/>
+
+			            <Label 
+								FontSize="9"
+								Text="{Binding Company}" 
+								TextColor="Black" 
+								FontAttributes="Bold" 
+								HorizontalOptions="Center"
+			                    HorizontalTextAlignment="Center"
+			                    VerticalOptions="Center"
+			                    VerticalTextAlignment="Center"
+								LineBreakMode="WordWrap"
+
+								/>
+
+			        </StackLayout>
+
+			        <StackLayout Margin="5, 0, 5, 5">
+
+			            <Label 
+								FontSize="10"
+								Text="{Binding Headline}" 
+								TextColor="Black" 
+								FontAttributes="Bold" 
+								HorizontalOptions="Center"
+			                    HorizontalTextAlignment="Center"
+			                    VerticalOptions="Center"
+			                    VerticalTextAlignment="Center"
+								LineBreakMode="WordWrap"
+								/>
+
+			            <Label 
+								FontSize="9"
+								Text="{Binding ShortDescription}" 
+								TextColor="Black" 
+								HorizontalOptions="Center"
+			                    HorizontalTextAlignment="Start"
+			                    VerticalOptions="Center"
+			                    VerticalTextAlignment="Center"
+								/>
+
+			          <artina:Button Clicked="VoteButtonClicked"
+								Style="{DynamicResource PrimaryActionButtonStyle}"
+								VerticalOptions="End" BackgroundColor="{Binding Vote, Converter={StaticResource hasvoted}}"
+								Text="{Binding ButtonText}" >
+			            </artina:Button>
+
+			        </StackLayout>
+
+			    </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+		<ActivityIndicator  x:Name="activity" AutomationId="activity" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" 
+				VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+
+
+
+	</Grid>
+</ContentPage>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="TMTK.SponsersPage" 
+	xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared" 
+	xmlns:views="clr-namespace:TMTK;assembly=TMTK" Title="Meet The Sponsors">
+
+	<Grid>
+	
+	<ListView 
+			x:Name="sampleListView" 
+			ItemsSource="{ Binding SponsorsGroupedCollection }"
+			IsGroupingEnabled="true"
+			SeparatorVisibility="Default" 
+			SeparatorColor="#DFDFDF"
+			HasUnevenRows="true"
+			ItemSelected="OnItemSelected"
+			GroupDisplayBinding="{ Binding Key}"
+			VerticalOptions="FillAndExpand"
+			 >
+				<ListView.GroupHeaderTemplate> 
+					<DataTemplate> 
+						<ViewCell Height="40"> 
+							<views:SponsorGroupHeaderTemplate />
+						</ViewCell> 
+					</DataTemplate> 
+				</ListView.GroupHeaderTemplate> 
+
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<views:SponsorsItemTemplate />
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+		</ListView>
+
+					<ActivityIndicator  x:Name="activity" AutomationId="activity" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" 
+				VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+		
+	</Grid>
+
+</ContentPage>

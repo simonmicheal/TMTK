@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="TMTK.CategoriesListWithIconsItemTemplate">
+	<ContentView.Content>
+		<StackLayout Spacing="0" Padding="0" HorizontalOptions="Fill">
+			<StackLayout Spacing="20" Padding="0, 0, 0, 0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal" BackgroundColor="{ Binding BackgroundColor }" >
+				<BoxView BackgroundColor="{ Binding BackgroundColor }" WidthRequest="10" />
+				<!--<Label Text="{ Binding Icon }" FontSize="30" Style="{ StaticResource FontIcon }" TextColor="{ Binding BackgroundColor }" HorizontalOptions="Start" WidthRequest="30" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />-->
+                <Image Source="{ Binding BackgroundImage }" Aspect="AspectFit" WidthRequest="30" VerticalOptions="Center" HorizontalOptions="Start" />
+                <Label Text="{ Binding Name }" HorizontalOptions="FillAndExpand" VerticalOptions="Center" TextColor="White" />
+				<!--				<commonViews:Badge
+					HorizontalOptions="End"
+					BadgeText="{ Binding MenuList.Count }"
+					BadgeTextColor="#FFF"
+					BadgeBackgroundColor="#55000000"
+					VerticalOptions="Center"
+					TranslationX="8"
+					TranslationY="2"
+				/>-->
+				<Label WidthRequest="20" HorizontalOptions="End" Text="" TextColor="White" Style="{ DynamicResource MainMenu_Right_Chevron_Style }" />
+			</StackLayout>
+			<!-- Bottom Line -->
+			<StackLayout BackgroundColor="{ Binding BackgroundColor }" HeightRequest="1" VerticalOptions="End" Opacity=".5" />
+		</StackLayout>
+	</ContentView.Content>
+</ContentView>

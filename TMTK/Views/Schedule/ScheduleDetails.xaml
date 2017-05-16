@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="TMTK.ScheduleDetails"
+	xmlns:converters="clr-namespace:TMTK;assembly=TMTK"
+	xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared">
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<converters:ByteToImageFieldConverter x:Key="bic" />
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<ScrollView x:Name="outerScrollView" BackgroundColor="White">
+		<Grid x:Name="layeringGrid" RowSpacing="0" VerticalOptions="FillAndExpand">
+			<StackLayout 
+				Spacing="0" 
+				Padding="0" 
+				VerticalOptions="FillAndExpand">
+
+				<StackLayout 
+					Padding="0"
+					Spacing="0"	
+					VerticalOptions="FillAndExpand">
+
+
+					<StackLayout Padding="20" BackgroundColor="White">
+						<!-- MAIN PARAGRAPH -->
+						<artina:CircleImage IsVisible="{Binding IsSpeakerPicture}"
+								Source="{ Binding CurrentSpeaker.SpeakerPicture, Converter={StaticResource bic}}" 
+								Style="{ StaticResource AvatarSmall }"								
+								HorizontalOptions="Start">
+								<artina:CircleImage.GestureRecognizers>
+									<TapGestureRecognizer Tapped="OnSpeakerTapped" />
+								</artina:CircleImage.GestureRecognizers>
+						</artina:CircleImage>
+						
+						<Label
+							Text="{ Binding SelectedSession.SessionDescription }"
+							VerticalOptions="EndAndExpand"
+							TextColor="#8a8a8a" />
+						
+					</StackLayout>
+
+					<BoxView Style="{ StaticResource Horizontal1ptLineStyle }" />
+
+					<StackLayout HorizontalOptions="FillAndExpand" HeightRequest="100" WidthRequest="100">
+					
+					<Image Margin="15" BackgroundColor="White" IsVisible="{Binding IsSponsorPicture}"  
+							Aspect="AspectFit"
+								Source="{Binding CurrentSponsor.SponsorLogo, Converter={StaticResource bic}}" 
+			 					VerticalOptions="Center" HorizontalOptions="Center">
+			 					<Image.GestureRecognizers>
+									<TapGestureRecognizer Tapped="OnSponsorTapped" />
+								</Image.GestureRecognizers>
+					</Image>
+						</StackLayout>
+
+				</StackLayout>
+
+
+
+			</StackLayout>
+
+			<ActivityIndicator  x:Name="activity" AutomationId="activity" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" 
+				VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+			
+		</Grid>
+	</ScrollView>
+
+	
+</ContentPage>

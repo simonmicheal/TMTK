@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="TMTK.FinalistItemTemplate"
+	xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared" 
+	xmlns:converters="clr-namespace:TMTK;assembly=TMTK" 
+	xmlns:util="clr-namespace:TMTK;assembly=TMTK">
+
+    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" BackgroundColor="White" Margin="10" Padding="5">
+
+        <StackLayout VerticalOptions="Center">
+            <artina:CircleImage BackgroundColor="White" 
+			    Source="{ Binding Headshot, Converter={StaticResource bic}}" 
+			    Style="{StaticResource AvatarLarge}" VerticalOptions="Center" Margin="5" />
+
+            <Label 
+					FontSize="10"
+					Text="{Binding Name}" 
+					TextColor="Black" 
+					FontAttributes="Bold" 
+					HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center"
+					LineBreakMode="WordWrap"
+					/>
+
+            <Label 
+					FontSize="9"
+					Text="{Binding Company}" 
+					TextColor="Black" 
+					FontAttributes="Bold" 
+					HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center"
+					LineBreakMode="WordWrap"
+
+					/>
+
+        </StackLayout>
+
+        <StackLayout Margin="5, 0, 5, 5">
+
+            <Label 
+					FontSize="10"
+					Text="{Binding Headline}" 
+					TextColor="Black" 
+					FontAttributes="Bold" 
+					HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center"
+					LineBreakMode="WordWrap"
+					/>
+
+            <Label 
+					FontSize="9"
+					Text="{Binding ShortDescription}" 
+					TextColor="Black" 
+					HorizontalOptions="Center"
+                    HorizontalTextAlignment="Start"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center"
+					/>
+
+          <artina:Button Command="{Binding Path=BindingContext.VotingCommand, Source={util:ElementSource finalistslist}}" 
+					Style="{DynamicResource PrimaryActionButtonStyle}"
+					VerticalOptions="End"
+					Text="{Binding ButtonText}" >
+            </artina:Button>
+
+        </StackLayout>
+
+    </StackLayout>
+</ContentView>

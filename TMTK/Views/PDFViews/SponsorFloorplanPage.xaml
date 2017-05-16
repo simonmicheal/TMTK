@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TMTK.SponsorFloorplanPage"
+             xmlns:views="clr-namespace:TMTK;assembly=TMTK"
+             xmlns:local="clr-namespace:TMTK;assembly=TMTK"
+	         Title="Sponsor Floorplan" BackgroundColor="#ffffff">
+
+    <ContentPage.Content>
+        <local:PDFWebView Uri="BoothFloorPlan.pdf" WidthRequest="1000" HeightRequest="1000" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+    </ContentPage.Content>
+</ContentPage>

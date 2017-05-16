@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared" 
+	xmlns:converters="clr-namespace:TMTK;assembly=TMTK" x:Class="TMTK.SpeakersItemTemplate">
+	<ContentView.Resources>
+		<ResourceDictionary>
+			<converters:ByteToImageFieldConverter x:Key="bic" />
+		</ResourceDictionary>
+	</ContentView.Resources>
+	<StackLayout>
+		<StackLayout Orientation="Horizontal" Grid.Column="0" VerticalOptions="Center">
+			<artina:CircleImage BackgroundColor="White" 
+			Source="{ Binding SpeakerPicture, Converter={StaticResource bic}}" 
+			Style="{StaticResource AvatarLarge}" VerticalOptions="Center" Margin="10" />
+		</StackLayout>
+		<Label Text="{Binding SpeakerName}" 
+		TextColor="Black" FontSize="12" FontAttributes="Bold" 
+		HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+		<Label Text="{Binding SpeakerCompany}" 
+		TextColor="Gray" FontSize="12" FontAttributes="Bold" 
+		HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+	</StackLayout>
+
+<ContentView.GestureRecognizers>
+		<TapGestureRecognizer Tapped="OnImageTapped" />
+	</ContentView.GestureRecognizers>
+
+</ContentView>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+	x:Class="TMTK.SessionItemTemplate"
+	xmlns:converters="clr-namespace:TMTK;assembly=TMTK"
+	BackgroundColor="#DFDFDF"
+	Padding="10">
+	<ContentView.Resources>
+		<ResourceDictionary>
+			<converters:DatetimetoStringConverter x:Key="dteConverter" />
+		</ResourceDictionary>
+	</ContentView.Resources>
+
+	<!-- Outer container: 
+	this creates the structure that holds the card 
+	and the shadow at the bottom  -->
+
+	<Grid RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="1" />
+		</Grid.RowDefinitions>
+
+		<!-- Article likes -->
+		<Grid 
+			BackgroundColor="White"
+			ColumnSpacing="0" 
+			RowSpacing="0" 
+			Padding="20"
+		>
+
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="1" />
+			</Grid.RowDefinitions>
+
+			<!-- Card Header -->
+			<StackLayout>
+
+				<!-- Author -->
+				<Label
+					TextColor="Black" 
+					FontAttributes="Bold" 
+					Text="{Binding Title}"
+					VerticalTextAlignment="Center" />
+			</StackLayout>
+
+			<!-- Card Body -->
+			<StackLayout Margin="0,5,0,0"
+				Grid.Row="1" >
+
+				<!-- Card title -->
+				<Label 
+					FontSize="10"
+					TextColor="Black" 
+					FontAttributes="Bold" 
+					Text="{Binding ShortDescription}"
+					/>
+				
+			</StackLayout>
+
+			<!-- Card Footer -->
+			<StackLayout 
+				VerticalOptions="End"
+				Spacing="0" 
+				Padding="0,5,0,0"
+				Orientation="Vertical"
+				Grid.Row="2"
+				>
+
+				<StackLayout Margin="0,10,0,0" Orientation="Horizontal">
+
+				<Label 
+					FontSize="9"
+					Text="Location :" 
+					TextColor="Gray" 
+					FontAttributes="Bold" 
+					HorizontalOptions="Start"
+					/>
+
+				<!-- Location -->
+				<Label 
+					FontSize="9"
+					Text="{Binding Location}" 
+					TextColor="Black" 
+					Margin="13,0,0,0"
+					FontAttributes="Bold" 
+					HorizontalOptions="Start"
+					LineBreakMode="WordWrap"
+					/>
+					
+				</StackLayout>
+
+				<StackLayout Orientation="Horizontal">
+
+				<Label 
+					FontSize="9"
+					Text="Start Time :" 
+					TextColor="Gray" 
+					Margin="0,5,0,0"
+					FontAttributes="Bold" 
+					HorizontalOptions="Start"
+					LineBreakMode="WordWrap"
+					/>
+
+				<!-- Location -->
+				<Label 
+					FontSize="9"
+					Text="{Binding StartTime, Converter={StaticResource dteConverter}}" 
+					TextColor="Black" 
+					Margin="4,5,0,0"
+					FontAttributes="Bold" 
+					HorizontalOptions="Start"
+					LineBreakMode="WordWrap"
+					/>
+					
+				</StackLayout>
+
+				<StackLayout Orientation="Horizontal">
+
+				<Label 
+					FontSize="9"
+					Text="Finish Time :" 
+					TextColor="Gray" 
+					FontAttributes="Bold" 
+					HorizontalOptions="Start"
+					Margin="0,5,0,0"
+					LineBreakMode="WordWrap"
+					/>
+
+				<!-- Location -->
+				<Label 
+					FontSize="9"
+					Text="{Binding EndTime, Converter={StaticResource dteConverter}}" 
+					TextColor="Black" 
+					FontAttributes="Bold" 
+					Margin="0,5,0,0"
+					HorizontalOptions="StartAndExpand"
+					LineBreakMode="WordWrap"
+					/>
+				</StackLayout>
+			</StackLayout>
+		</Grid>
+
+		<!-- CARDS SHADOW -->
+		<BoxView
+			HeightRequest="1" 
+			BackgroundColor="Gray" 
+			Opacity=".5"
+			Grid.Row="1" 
+		/>
+
+	</Grid>
+
+</ContentView>

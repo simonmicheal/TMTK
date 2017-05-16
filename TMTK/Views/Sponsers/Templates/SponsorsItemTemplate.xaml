@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="TMTK.SponsorsItemTemplate"
+	xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared" 
+	xmlns:converters="clr-namespace:TMTK;assembly=TMTK" >
+
+	<ContentView.Resources>
+		<ResourceDictionary>
+			<converters:ByteToImageFieldConverter x:Key="bic" />
+		</ResourceDictionary>
+	</ContentView.Resources>
+
+
+	<ScrollView>
+	<StackLayout HorizontalOptions="FillAndExpand" HeightRequest="100" WidthRequest="100">
+		<Image BackgroundColor="White"  Aspect="AspectFit"
+			Source="{Binding SponsorLogo, Converter={StaticResource bic}}" 
+			 VerticalOptions="Center" HorizontalOptions="Center" Margin="15" />
+	</StackLayout>
+		</ScrollView>
+</ContentView>

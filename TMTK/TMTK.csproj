@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A104128B-69BF-4A78-BCEB-9761135E716F}</ProjectGuid>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>TMTK</RootNamespace>
+    <AssemblyName>TMTK</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
+    <ReleaseVersion>1.1</ReleaseVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\PDFWebView.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Colors.cs" />
+    <Compile Include="ViewModels\Contests\ContestsDefinition.cs" />
+    <Compile Include="Helpers\NavigationService.cs" />
+    <Compile Include="Helpers\Grouping.cs" />
+    <Compile Include="ViewModels\LeftMenu\Menu.cs" />
+    <Compile Include="ViewModels\LeftMenu\MenuCategory.cs" />
+    <Compile Include="ViewModels\LeftMenu\MenuCoordinator.cs" />
+    <Compile Include="ViewModels\LeftMenu\MainMenuViewModel.cs" />
+    <Compile Include="Models\SampleData.cs" />
+    <Compile Include="ViewModels\LoginVM.cs" />
+    <Compile Include="AkavacheSqliteLinkerOverride.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Helpers\Globals.cs" />
+    <Compile Include="ViewModels\DashboardVM.cs" />
+    <Compile Include="ViewModels\Sponsers\SponsorsVM.cs" />
+    <Compile Include="ViewModels\Sponsers\SponsorDefinition.cs" />
+    <Compile Include="ViewModels\Schedules\SchedulesVM.cs" />
+    <Compile Include="ViewModels\Schedules\SchedulesDefinition.cs" />
+    <Compile Include="ViewModels\Speakers\SpeakersVM.cs" />
+    <Compile Include="ViewModels\Speakers\SpeakersDefinition.cs" />
+    <Compile Include="Converters\ByteToImageFieldConverter.cs" />
+    <Compile Include="Converters\DatetimetoStringConverter.cs" />
+    <Compile Include="Helpers\NoHelperEntry.cs" />
+    <Compile Include="ViewModels\Schedules\ScheduleDetailsVM.cs" />
+    <Compile Include="Views\Catalog\CatalogPage.xaml.cs">
+      <DependentUpon>CatalogPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Common\BrandBlock.xaml.cs">
+      <DependentUpon>BrandBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DashBoard\DashboardPage.xaml.cs">
+      <DependentUpon>DashboardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DashBoard\Template\DashboardItemTemplate.xaml.cs">
+      <DependentUpon>DashboardItemTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finalists\FinalistsPage.xaml.cs">
+      <DependentUpon>FinalistsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Finalists\Template\FinalistItemTemplate.xaml.cs">
+      <DependentUpon>FinalistItemTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Navigation\MainMenuPage.xaml.cs">
+      <DependentUpon>MainMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Navigation\RootPage.xaml.cs">
+      <DependentUpon>RootPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Navigation\Templates\CategoriesListWithIconsItemTemplate.xaml.cs">
+      <DependentUpon>CategoriesListWithIconsItemTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Navigation\Templates\MainMenuGroupHeaderTemplate.xaml.cs">
+      <DependentUpon>MainMenuGroupHeaderTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Navigation\Templates\MainMenuItemTemplate.xaml.cs">
+      <DependentUpon>MainMenuItemTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Navigation\WelcomePage.xaml.cs">
+      <DependentUpon>WelcomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PDFViews\EventFloorplanPage.xaml.cs">
+      <DependentUpon>EventFloorplanPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PDFViews\NashvilleInfoPage.xaml.cs">
+      <DependentUpon>NashvilleInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PDFViews\SponsorFloorplanPage.xaml.cs">
+      <DependentUpon>SponsorFloorplanPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Producers\ProducersPage.xaml.cs">
+      <DependentUpon>ProducersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Schedule\ScheduleDetails.xaml.cs">
+      <DependentUpon>ScheduleDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Schedule\SchedulePage.xaml.cs">
+      <DependentUpon>SchedulePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Schedule\Templates\ScheduleGroupHeaderTemplate.xaml.cs">
+      <DependentUpon>ScheduleGroupHeaderTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Schedule\Templates\SessionItemTemplate.xaml.cs">
+      <DependentUpon>SessionItemTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Speakers\SpeakerDetails.xaml.cs">
+      <DependentUpon>SpeakerDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Speakers\SpeakersPage.xaml.cs">
+      <DependentUpon>SpeakersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Speakers\Templates\SpeakersItemTemplate.xaml.cs">
+      <DependentUpon>SpeakersItemTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sponsers\SponsersPage.xaml.cs">
+      <DependentUpon>SponsersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sponsers\Templates\SponsorGroupHeaderTemplate.xaml.cs">
+      <DependentUpon>SponsorGroupHeaderTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sponsers\Templates\SponsorsItemTemplate.xaml.cs">
+      <DependentUpon>SponsorsItemTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StJudes\StJudesPage.xaml.cs">
+      <DependentUpon>StJudesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ElementSource.cs" />
+    <Compile Include="Converters\HasVotedConverter.cs" />
+    <Compile Include="ViewModels\LeftMenu\MenuDefinition.cs" />
+    <Compile Include="ViewModels\Contests\ContestVM.cs" />
+    <Compile Include="MyPage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\portable-net45+win8+wpa81+wp8\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="UXDivers.Artina.Shared">
+      <HintPath>..\..\..\lib\pcl\UXDivers.Artina.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\packages\Xamarin.Forms.2.3.4.231\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform">
+      <HintPath>..\packages\Xamarin.Forms.2.3.4.231\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\packages\Xamarin.Forms.2.3.4.231\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces">
+      <HintPath>..\packages\Rx-Interfaces.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Core">
+      <HintPath>..\packages\Rx-Core.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <HintPath>..\packages\Rx-Linq.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Akavache">
+      <HintPath>..\packages\akavache.core.5.0.0\lib\Portable-Net45+Win8+WP8+Wpa81\Akavache.dll</HintPath>
+    </Reference>
+    <Reference Include="Akavache.Sqlite3">
+      <HintPath>..\packages\akavache.sqlite3.5.0.0\lib\Portable-Net45+Win8+WP8+Wpa81\Akavache.Sqlite3.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices">
+      <HintPath>..\packages\Rx-PlatformServices.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Splat">
+      <HintPath>..\packages\Splat.1.6.0\lib\Portable-net45+win+wpa81+wp80\Splat.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core">
+      <HintPath>..\packages\SQLitePCLRaw.core.1.1.0\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_e_sqlite3">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_e_sqlite3.1.1.0\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_e_sqlite3.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_e_sqlite3.1.1.0\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Colors.tt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TMTK.Models\TMTK.Models.csproj">
+      <Project>{D0EA5C19-1AC4-44E8-BEDD-28F1EDBBC98A}</Project>
+      <Name>TMTK.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TMTK.Services\TMTK.Services.csproj">
+      <Project>{24EF2DDF-6C49-45F2-B7C1-B5F2DE4017AF}</Project>
+      <Name>TMTK.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Catalog\CatalogPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Common\BrandBlock.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashBoard\DashboardPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DashBoard\Template\DashboardItemTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Finalists\FinalistsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Finalists\Template\FinalistItemTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Login\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Navigation\MainMenuPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Navigation\RootPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Navigation\Templates\CategoriesListWithIconsItemTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Navigation\Templates\MainMenuGroupHeaderTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Navigation\Templates\MainMenuItemTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Navigation\WelcomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PDFViews\EventFloorplanPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PDFViews\NashvilleInfoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PDFViews\SponsorFloorplanPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Producers\ProducersPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Schedule\ScheduleDetails.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Schedule\SchedulePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Schedule\Templates\ScheduleGroupHeaderTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Schedule\Templates\SessionItemTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Speakers\SpeakerDetails.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Speakers\SpeakersPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Speakers\Templates\SpeakersItemTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Sponsers\SponsersPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Sponsers\Templates\SponsorGroupHeaderTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Sponsers\Templates\SponsorsItemTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\StJudes\StJudesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="..\packages\Xamarin.Forms.2.3.4.231\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.231\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
+</Project>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="TMTK.SchedulePage"
+	xmlns:views="clr-namespace:TMTK;assembly=TMTK"
+	Title="Schedule" BackgroundColor="#DFDFDF">
+
+	<Grid>
+	<ListView 
+			x:Name="sampleListView" 
+			ItemsSource="{ Binding SchedulesGroupedByCategory }"
+			IsGroupingEnabled="true"
+		    ItemSelected="OnItemSelected"
+			SeparatorVisibility="Default" 
+			SeparatorColor="#DFDFDF"
+			HasUnevenRows="true"
+			GroupDisplayBinding="{ Binding ScheduleDate }"
+			VerticalOptions="FillAndExpand"
+			 >
+				<ListView.GroupHeaderTemplate> 
+					<DataTemplate> 
+						<ViewCell Height="40"> 
+							<views:ScheduleGroupHeaderTemplate />
+						</ViewCell> 
+					</DataTemplate> 
+				</ListView.GroupHeaderTemplate> 
+
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<views:SessionItemTemplate />
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+		</ListView>
+
+			<ActivityIndicator  x:Name="activity" AutomationId="activity" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" 
+				VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+
+		</Grid>
+
+</ContentPage>
