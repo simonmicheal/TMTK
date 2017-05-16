@@ -2,7 +2,7 @@
 Xamarin application for Technology Marketing Toolkit 2017 Boot Camp
 
 Packages used
-avavanche 
+Avavanche and
 UXDivers
 
 Android Store
